@@ -30,34 +30,34 @@ export default function ProjectCard({ project, index, onUpdateStatus }: ProjectC
     >
       {/* Header */}
       <div className="flex items-start justify-between">
-        <h3 className="text-lg font-bold text-white line-clamp-1">{project.title}</h3>
+        <h3 className="text-lg font-bold text-gray-900 line-clamp-1">{project.title}</h3>
         {project.completed && (
-          <span className="text-green-400 bg-green-400/10 px-3 py-1 rounded-full text-xs">
+          <span className="text-green-600 bg-green-100 px-3 py-1 rounded-full text-xs">
             Completed
           </span>
         )}
       </div>
 
       {/* Description */}
-      <p className="text-gray-400 text-sm line-clamp-2">{project.description}</p>
+      <p className="text-gray-500 text-sm line-clamp-2">{project.description}</p>
 
       {/* Status */}
       <div className="text-sm">
         <span className="text-gray-500">Status: </span>
-        <span className="text-indigo-400">{project.status}</span>
+        <span className="text-orange-500">{project.status}</span>
       </div>
 
       {/* Progress Bar */}
       <div className="space-y-2">
         <div className="flex justify-between text-sm">
-          <span className="text-gray-400">Progress</span>
-          <span className={`font-medium ${project.completed ? 'text-green-400' : 'text-purple-400'}`}>
+          <span className="text-gray-500">Progress</span>
+          <span className={`font-medium ${project.completed ? 'text-green-600' : 'text-orange-500'}`}>
             {project.progress}% Completed
           </span>
         </div>
-        <div className="bg-gray-700 rounded-full h-2 overflow-hidden">
+        <div className="bg-gray-200 rounded-full h-2 overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+            className="h-full bg-gradient-to-r from-orange-500 to-orange-400 rounded-full"
             initial={{ width: 0 }}
             animate={{ width: `${project.progress}%` }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -71,8 +71,8 @@ export default function ProjectCard({ project, index, onUpdateStatus }: ProjectC
   onClick={onUpdateStatus}
   className={`w-full py-3 rounded-xl font-semibold flex items-center justify-center gap-2 cursor-hover ${
     project.completed
-      ? 'bg-gray-700 text-gray-400 cursor-not-allowed'
-      : 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white'
+      ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+      : 'bg-gradient-to-r from-orange-500 to-orange-400 text-white'
   }`}
   whileHover={project.completed ? {} : { scale: 1.02 }}
   whileTap={project.completed ? {} : { scale: 0.98 }}

@@ -60,7 +60,7 @@ function StatCard({ value, suffix, label, delay }: { value: number; suffix?: str
       <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
         <AnimatedCounter end={value} suffix={suffix} />
       </div>
-      <div className={`text-sm font-medium ${useStore.getState().darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+      <div className={`text-sm font-medium text-gray-600`}>
         {label}
       </div>
     </motion.div>
@@ -102,7 +102,7 @@ useEffect(() => {
   const headerBlur = useTransform(scrollYProgress, [0, 0.1], [0, 10]);
   
   return (
-    <div className="min-h-screen bg-[#0B1120] text-white">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#111827]">
       {/* Header */}
       <motion.header 
         style={{ opacity: headerOpacity, backdropFilter: headerBlur }}
@@ -126,7 +126,7 @@ useEffect(() => {
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="text-sm font-medium text-gray-400 hover:text-copper-500 transition-colors cursor-hover"
+                  className="text-sm font-medium text-gray-600 hover:text-orange-500 transition-colors cursor-hover"
                   whileHover={{ y: -2 }}
                 >
                   {item}
@@ -146,7 +146,7 @@ useEffect(() => {
               
               <Link to="/auth">
                 <motion.button
-                  className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-copper-500 to-copper-600 text-white font-semibold rounded-xl border border-purple-500/40 hover:border-purple-400 transition-all btn-shine cursor-hover"
+                  className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-copper-500 to-copper-600 text-white font-semibold rounded-xl border border-orange-300 hover:border-orange-400 transition-all btn-shine cursor-hover"
                   whileHover={{ scale: 1.02, boxShadow: '0 10px 40px rgba(240, 128, 18, 0.3)' }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -169,14 +169,14 @@ useEffect(() => {
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
-            className="md:hidden glass border-t border-titanium-200 dark:border-titanium-800"
+            className="md:hidden glass border-t border-gray-200"
           >
             <div className="px-4 py-4 space-y-3">
               {['How It Works', 'Features', 'Testimonials', 'About'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace(' ', '-')}`}
-                  className="block py-2 text-gray-400"
+                  className="block py-2 text-gray-600"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item}
@@ -193,7 +193,7 @@ useEffect(() => {
       </motion.header>
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-[#0B1120]">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <Canvas3D />
         </div>
@@ -211,19 +211,19 @@ useEffect(() => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
             >
               <Sparkles className="w-4 h-4 text-copper-500" />
-              <span className="text-sm font-medium text-gray-400">
+              <span className="text-sm font-medium text-gray-500">
                 Where Ideas Meet Execution
               </span>
             </motion.div>
             
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-              <span className={`block ${darkMode ? 'text-white' : 'text-titanium-900'}`}>
+              <span className="block text-gray-900">
                 Solve Real Problems
               </span>
               <span className="gradient-text">With Real Builders</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto mb-10">
+            <p className="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto mb-10">
               Collab Mind connects problem owners with talented student builders. 
               Transform ideas into impact through collaboration.
             </p>
@@ -231,7 +231,7 @@ useEffect(() => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/auth">
                 <motion.button
-                  className="px-8 py-4 bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold text-lg rounded-2xl border border-purple-500/40 hover:border-purple-400 transition-all btn-shine cursor-hover"
+                  className="px-8 py-4 bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold text-lg rounded-2xl border border-orange-300 hover:border-orange-400 transition-all btn-shine cursor-hover"
                   whileHover={{ scale: 1.05, boxShadow: '0 20px 60px rgba(240, 128, 18, 0.4)' }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -241,7 +241,7 @@ useEffect(() => {
               
               <motion.a
                 href="#how-it-works"
-                className="px-8 py-4 glass text-titanium-700 dark:text-gray-300 font-semibold text-lg rounded-2xl cursor-hover"
+                className="px-8 py-4 glass text-gray-700 font-semibold text-lg rounded-2xl cursor-hover"
                 whileHover={{ scale: 1.02, backgroundColor: 'rgba(240, 128, 18, 0.1)' }}
               >
                 See How It Works
@@ -261,7 +261,7 @@ useEffect(() => {
       </section>
       
       {/* Stats Section */}
-      <section className="py-20 relative bg-[#0B1120]">
+      <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             <StatCard value={5000} suffix="+" label="Active Builders" delay={0} />
@@ -282,11 +282,11 @@ useEffect(() => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className={darkMode ? 'text-white' : 'text-titanium-900'}>How </span>
+              <span className="text-gray-900">How </span>
               <span className="gradient-text">Collab Mind</span>
-              <span className={darkMode ? 'text-white' : 'text-titanium-900'}> Works</span>
+              <span className="text-gray-900"> Works</span>
             </h2>
-            <p className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto">
               From problem to solution in four simple steps
             </p>
           </motion.div>
@@ -303,10 +303,10 @@ useEffect(() => {
               >
                 <div className="glass rounded-2xl p-6 h-full card-3d">
                   <div className="text-6xl font-bold text-copper-500/20 mb-4">{step.num}</div>
-                  <h3 className="text-xl font-bold mb-2 text-white">
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">
                     {step.title}
                   </h3>
-                  <p className="text-gray-500 dark:text-gray-400">{step.desc}</p>
+                  <p className="text-gray-500">{step.desc}</p>
                 </div>
                 
                 {index < steps.length - 1 && (
@@ -329,10 +329,10 @@ useEffect(() => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
               Powerful <span className="gradient-text">Features</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto">
               Everything you need to turn problems into solutions
             </p>
           </motion.div>
@@ -351,8 +351,8 @@ useEffect(() => {
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-copper-400 to-copper-600 flex items-center justify-center mb-4">
                   <feature.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
-                <p className="text-gray-400">{feature.desc}</p>
+                <h3 className="text-xl font-bold mb-2 text-gray-900">{feature.title}</h3>
+                <p className="text-gray-500">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -360,7 +360,7 @@ useEffect(() => {
       </section>
       
       {/* Testimonials */}
-      <section id="testimonials" className="py-24 relative bg-[#0B1120]">
+      <section id="testimonials" className="py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -369,10 +369,10 @@ useEffect(() => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className={darkMode ? 'text-white' : 'text-titanium-900'}>What </span>
+              <span className="text-gray-900">What </span>
               <span className="gradient-text">Builders Say</span>
             </h2>
-            <p className="text-xl text-gray-500 dark:text-gray-400">
+            <p className="text-xl text-gray-500">
               Hear from our community
             </p>
           </motion.div>
@@ -396,7 +396,7 @@ useEffect(() => {
 />
                   ))}
                 </div>
-                <p className="text-gray-400 mb-6 italic">
+                <p className="text-gray-500 mb-6 italic">
                   "{testimonial.message}"
                 </p>
                 <div className="flex items-center gap-3">
@@ -404,7 +404,7 @@ useEffect(() => {
                     {testimonial.userName.charAt(0)}
                   </div>
                   <div>
-                    <div className="font-semibold text-white">
+                    <div className="font-semibold text-gray-900">
                       {testimonial.userName}
                     </div>
                     <div className="text-sm text-gray-500">{testimonial.formattedDate}</div>
@@ -425,25 +425,25 @@ useEffect(() => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
                 Our <span className="gradient-text">Mission</span>
               </h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <p className="text-xl text-gray-700 mb-6">
                 Collab Mind was born from a simple belief: the best solutions come 
                 when great minds work together.
               </p>
-              <p className="text-gray-400 mb-8">
+              <p className="text-gray-600 mb-8">
                 We bridge the gap between real-world problem owners and talented 
                 student builders, creating opportunities for meaningful collaboration 
                 and hands-on learning experience.
               </p>
               
               <div className="flex items-center gap-6">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-copper-400 to-copper-600 flex items-center justify-center text-white text-2xl font-bold ring-4 ring-purple-500/40">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-copper-400 to-copper-600 flex items-center justify-center text-white text-2xl font-bold ring-4 ring-orange-500/30">
                   MF
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-white">Mohammad Fazil</div>
+                  <div className="text-xl font-bold text-gray-900">Mohammad Fazil</div>
                   <div className="text-copper-400">Founder & CEO</div>
                 </div>
               </div>
@@ -457,23 +457,23 @@ useEffect(() => {
             >
               <div className="glass rounded-2xl p-6 text-center">
                 <Shield className="w-10 h-10 text-copper-400 mx-auto mb-3" />
-                <div className="text-2xl font-bold text-white">100%</div>
-                <div className="text-gray-400">Verified Users</div>
+                <div className="text-2xl font-bold text-gray-900">100%</div>
+                <div className="text-gray-500">Verified Users</div>
               </div>
               <div className="glass rounded-2xl p-6 text-center">
                 <Award className="w-10 h-10 text-copper-400 mx-auto mb-3" />
-                <div className="text-2xl font-bold text-white">500+</div>
-                <div className="text-gray-400">Certificates Issued</div>
+                <div className="text-2xl font-bold text-gray-900">500+</div>
+                <div className="text-gray-500">Certificates Issued</div>
               </div>
               <div className="glass rounded-2xl p-6 text-center">
                 <Users className="w-10 h-10 text-copper-400 mx-auto mb-3" />
-                <div className="text-2xl font-bold text-white">50+</div>
-                <div className="text-gray-400">University Partners</div>
+                <div className="text-2xl font-bold text-gray-900">50+</div>
+                <div className="text-gray-500">University Partners</div>
               </div>
               <div className="glass rounded-2xl p-6 text-center">
                 <Rocket className="w-10 h-10 text-copper-400 mx-auto mb-3" />
-                <div className="text-2xl font-bold text-white">$2M+</div>
-                <div className="text-gray-400">Project Value</div>
+                <div className="text-2xl font-bold text-gray-900">$2M+</div>
+                <div className="text-gray-500">Project Value</div>
               </div>
             </motion.div>
           </div>
@@ -482,7 +482,7 @@ useEffect(() => {
       
 
       {/* Founder Section */}
-<section className="py-24 bg-[#0B1120] relative">
+<section className="py-24 relative">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -495,12 +495,12 @@ useEffect(() => {
         className="flex justify-center"
       >
         <div className="relative">
-          <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-purple-500 to-pink-500 opacity-30 blur-xl" />
+          <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-orange-500 to-orange-400 opacity-20 blur-xl" />
           
           <img
             src="fazil.jpeg"   // 🔥 Put your image inside public folder
             alt="Founder"
-            className="relative w-80 md:w-96 rounded-3xl object-cover border border-purple-500/30 shadow-2xl"
+            className="relative w-80 md:w-96 rounded-3xl object-cover border border-orange-200 shadow-2xl"
           />
         </div>
       </motion.div>
@@ -512,31 +512,31 @@ useEffect(() => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
           A Message From The <span className="gradient-text">Founder</span>
         </h2>
 
-        <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+        <p className="text-lg text-gray-700 mb-6 leading-relaxed">
           When I started Collab Mind, I wasn’t trying to build just another platform. 
           I wanted to create an ecosystem where students don’t just learn theory — 
           they solve real problems.
         </p>
 
-        <p className="text-lg text-gray-400 mb-6 leading-relaxed">
+        <p className="text-lg text-gray-600 mb-6 leading-relaxed">
           I’ve seen talent go unnoticed simply because opportunity wasn’t structured properly. 
           Collab Mind is built to change that — to connect ambition with execution.
         </p>
 
-        <p className="text-lg text-gray-400 leading-relaxed">
+        <p className="text-lg text-gray-600 leading-relaxed">
           This is more than collaboration. This is ownership. 
           This is impact. And we’re just getting started.
         </p>
 
         <div className="mt-8">
-          <div className="text-xl font-semibold text-white">
+          <div className="text-xl font-semibold text-gray-900">
             Mohammad Fazil
           </div>
-          <div className="text-purple-400">
+          <div className="text-orange-500">
             Founder & CEO, Collab Mind
           </div>
         </div>
@@ -556,16 +556,16 @@ useEffect(() => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
               Ready to <span className="gradient-text">Transform</span> Your Ideas?
             </h2>
-            <p className="text-xl text-gray-500 dark:text-gray-400 mb-8">
+            <p className="text-xl text-gray-500 mb-8">
               Join thousands of problem owners and builders creating impact together
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/auth?mode=register">
                 <motion.button
-                  className="px-8 py-4 bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold text-lg rounded-2xl border border-purple-500/40 hover:border-purple-400 transition-all btn-shine cursor-hover"
+                  className="px-8 py-4 bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold text-lg rounded-2xl border border-orange-300 hover:border-orange-400 transition-all btn-shine cursor-hover"
                   whileHover={{ scale: 1.05, boxShadow: '0 20px 60px rgba(240, 128, 18, 0.4)' }}
                 >
                   Join Now — It's Free
@@ -573,7 +573,7 @@ useEffect(() => {
               </Link>
               <Link to="/auth?mode=login">
                 <motion.button
-                  className="px-8 py-4 glass text-titanium-700 dark:text-gray-300 font-semibold text-lg rounded-2xl cursor-hover"
+                  className="px-8 py-4 glass text-gray-700 font-semibold text-lg rounded-2xl cursor-hover"
                   whileHover={{ scale: 1.02, backgroundColor: 'rgba(240, 128, 18, 0.1)' }}
                 >
                   Sign In
@@ -585,7 +585,7 @@ useEffect(() => {
       </section>
       
       {/* Feedback Form */}
-      <section className="py-24 relative bg-[#0B1120]">
+      <section className="py-24 relative">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -594,10 +594,10 @@ useEffect(() => {
             className="glass rounded-3xl p-8 md:p-12"
           >
             <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">
+              <h2 className="text-3xl md:text-4xl font-bold mb-2 text-gray-900">
                 Get in <span className="gradient-text">Touch</span>
               </h2>
-              <p className="text-gray-500 dark:text-gray-400">
+              <p className="text-gray-500">
                 Have questions or feedback? We'd love to hear from you.
               </p>
             </div>
@@ -605,7 +605,7 @@ useEffect(() => {
             <form onSubmit={handleFeedbackSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">
+                  <label className="block text-sm font-medium text-gray-600 mb-2">
                     Your Name
                   </label>
                   <input
@@ -613,12 +613,12 @@ useEffect(() => {
                     required
                     value={feedbackForm.name}
                     onChange={(e) => setFeedbackForm({ ...feedbackForm, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl glass bg-transparent border border-titanium-200 dark:border-titanium-700 focus:border-copper-500 focus:ring-2 focus:ring-copper-500/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all"
                     placeholder="John Doe"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">
+                  <label className="block text-sm font-medium text-gray-600 mb-2">
                     Email Address
                   </label>
                   <input
@@ -626,20 +626,20 @@ useEffect(() => {
                     required
                     value={feedbackForm.email}
                     onChange={(e) => setFeedbackForm({ ...feedbackForm, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl glass bg-transparent border border-titanium-200 dark:border-titanium-700 focus:border-copper-500 focus:ring-2 focus:ring-copper-500/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all"
                     placeholder="john@example.com"
                   />
                 </div>
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-400 mb-2">
+                <label className="block text-sm font-medium text-gray-600 mb-2">
                   Category
                 </label>
                 <select
                   value={feedbackForm.category}
                   onChange={(e) => setFeedbackForm({ ...feedbackForm, category: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl glass bg-transparent border border-titanium-200 dark:border-titanium-700 focus:border-copper-500 focus:ring-2 focus:ring-copper-500/20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all"
                 >
                   <option value="general">General Inquiry</option>
                   <option value="testimonial">Testimonial</option>
@@ -650,7 +650,7 @@ useEffect(() => {
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-gray-400 mb-2">
+                <label className="block text-sm font-medium text-gray-600 mb-2">
                   Message
                 </label>
                 <textarea
@@ -658,7 +658,7 @@ useEffect(() => {
                   rows={5}
                   value={feedbackForm.message}
                   onChange={(e) => setFeedbackForm({ ...feedbackForm, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl glass bg-transparent border border-titanium-200 dark:border-titanium-700 focus:border-copper-500 focus:ring-2 focus:ring-copper-500/20 outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all resize-none"
                   placeholder="Tell us what's on your mind..."
                 />
               </div>
@@ -669,9 +669,9 @@ useEffect(() => {
                   id="contactPermission"
                   checked={feedbackForm.contactPermission}
                   onChange={(e) => setFeedbackForm({ ...feedbackForm, contactPermission: e.target.checked })}
-                  className="w-5 h-5 rounded border-titanium-300 dark:border-titanium-600 text-copper-500 focus:ring-copper-500"
+                  className="w-5 h-5 rounded border-gray-300 text-orange-500 focus:ring-orange-500"
                 />
-                <label htmlFor="contactPermission" className="text-sm text-gray-400">
+                <label htmlFor="contactPermission" className="text-sm text-gray-600">
                   I'd like to receive updates about Collab Mind
                 </label>
               </div>
@@ -679,7 +679,8 @@ useEffect(() => {
               <motion.button
                 type="submit"
                 disabled={feedbackStatus === 'success'}
-                className="w-full py-4 bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold text-lg rounded-2xl border border-purple-500/40 hover:border-purple-400 transition-all btn-shine cursor-hover disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"                whileHover={{ scale: feedbackStatus === 'success' ? 1 : 1.02 }}
+                className="w-full py-4 bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold text-lg rounded-2xl border border-orange-300 hover:border-orange-400 transition-all btn-shine cursor-hover disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                whileHover={{ scale: feedbackStatus === 'success' ? 1 : 1.02 }}
                 whileTap={{ scale: feedbackStatus === 'success' ? 1 : 0.98 }}
               >
                 {feedbackStatus === 'success' ? (
