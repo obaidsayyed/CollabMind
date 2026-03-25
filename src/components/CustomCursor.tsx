@@ -40,14 +40,14 @@ export default function CustomCursor() {
       style={{
         left: position.x,
         top: position.y,
-        border: `2px solid #6366F1`,
+        border: `2px solid #F97316`,
         transform: 'translate(-50%, -50%)',
-        mixBlendMode: 'difference'
+        mixBlendMode: 'normal'
       }}
       animate={{
         width: isHovering ? 48 : 20,
         height: isHovering ? 48 : 20,
-        backgroundColor: isHovering ? 'rgba(99, 102, 241, 0.2)' : 'transparent'
+        backgroundColor: isHovering ? 'rgba(249, 115, 22, 0.15)' : 'transparent'
       }}
       transition={{ type: 'spring', stiffness: 500, damping: 28 }}
     />

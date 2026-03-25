@@ -195,12 +195,12 @@ export default function AuthPage() {
 
           {/* Title */}
           <div className="mb-6">
-            <h1 className={`text-3xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-titanium-900'}`}>
+            <h1 className={`text-3xl font-bold mb-2 text-gray-900`}>
               {mode === 'login' && 'Welcome Back'}
               {mode === 'register' && 'Create Account'}
               {mode === 'reset' && 'Reset Password'}
             </h1>
-            <p className="text-gray-500 dark:text-gray-400">
+            <p className="text-gray-500 ">
               {mode === 'login' && 'Sign in to continue your journey'}
               {mode === 'register' && 'Join the community of problem solvers'}
               {mode === 'reset' && 'Recover your account'}
@@ -217,7 +217,7 @@ export default function AuthPage() {
                   exit={{ opacity: 0, height: 0 }}
                   className="mb-4"
                 >
-                  <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-gray-600 mb-2">
                     Full Name
                   </label>
                   <input
@@ -225,7 +225,7 @@ export default function AuthPage() {
                     required
                     value={formData.displayName}
                     onChange={(e) => setFormData({ ...formData, displayName: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl glass bg-transparent border border-titanium-200 dark:border-titanium-700 focus:border-copper-500 focus:ring-2 focus:ring-copper-500/20 outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl glass bg-transparent border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all"
                     placeholder="John Doe"
                   />
                 </motion.div>
@@ -233,14 +233,14 @@ export default function AuthPage() {
             </AnimatePresence>
 
             <div className="mb-4">
-  <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
+  <label className="block text-sm font-medium text-gray-600 mb-2">
     I want to join as
   </label>
 
   <select
     value={formData.role}
     onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-    className="w-full px-4 py-3 rounded-xl glass bg-transparent border border-titanium-200 dark:border-titanium-700 focus:border-copper-500 outline-none"
+    className="w-full px-4 py-3 rounded-xl glass bg-transparent border border-gray-300 focus:border-orange-500 outline-none"
   >
     <option value="solver">Problem Solver (Builder)</option>
     <option value="owner">Problem Owner</option>
@@ -248,7 +248,7 @@ export default function AuthPage() {
 </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-600 mb-2">
                 Email Address
               </label>
               <div className="relative">
@@ -258,7 +258,7 @@ export default function AuthPage() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full pl-12 pr-4 py-3 rounded-xl glass bg-transparent border border-titanium-200 dark:border-titanium-700 focus:border-copper-500 focus:ring-2 focus:ring-copper-500/20 outline-none transition-all"
+                  className="w-full pl-12 pr-4 py-3 rounded-xl glass bg-transparent border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all"
                   placeholder="you@example.com"
                 />
               </div>
@@ -266,7 +266,7 @@ export default function AuthPage() {
 
             {mode !== 'reset' && (
               <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-600 mb-2">
                   Password
                 </label>
                 <div className="relative">
@@ -276,7 +276,7 @@ export default function AuthPage() {
                     required
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                    className="w-full pl-12 pr-12 py-3 rounded-xl glass bg-transparent border border-titanium-200 dark:border-titanium-700 focus:border-copper-500 focus:ring-2 focus:ring-copper-500/20 outline-none transition-all"
+                    className="w-full pl-12 pr-12 py-3 rounded-xl glass bg-transparent border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all"
                     placeholder="••••••••"
                   />
                   <button
@@ -317,7 +317,7 @@ export default function AuthPage() {
             <motion.button
               type="submit"
               disabled={loading}
-              className="w-full py-4 bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold text-lg rounded-2xl border border-purple-500/40 hover:border-purple-400 transition-all btn-shine cursor-hover disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full py-4 bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold text-lg rounded-2xl border border-orange-300 hover:border-orange-400 transition-all btn-shine cursor-hover disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               whileHover={{ scale: loading ? 1 : 1.02 }}
               whileTap={{ scale: loading ? 1 : 0.98 }}
             >
@@ -349,9 +349,9 @@ export default function AuthPage() {
 
           {/* Divider */}
           <div className="my-4 flex items-center gap-4">
-            <div className="flex-1 h-px bg-titanium-200 dark:bg-titanium-700" />
+            <div className="flex-1 h-px bg-gray-200" />
             <span className="text-sm text-gray-500">or</span>
-            <div className="flex-1 h-px bg-titanium-200 dark:bg-titanium-700" />
+            <div className="flex-1 h-px bg-gray-200" />
           </div>
 
           {/* Google Sign In */}
@@ -375,22 +375,22 @@ export default function AuthPage() {
           {/* Mode Switch */}
           <div className="mt-6 text-center">
             {mode === 'login' && (
-              <p className="text-gray-500 dark:text-gray-400">
+              <p className="text-gray-500 ">
                 Don't have an account?{' '}
                 <button
   onClick={() => switchMode('register')}
-  className="text-purple-500 hover:text-pink-400 font-medium cursor-hover transition-colors"
+  className="text-orange-500 hover:text-orange-600 font-medium cursor-hover transition-colors"
 >
   Sign up
 </button>
               </p>
             )}
             {mode === 'register' && (
-              <p className="text-gray-500 dark:text-gray-400">
+              <p className="text-gray-500 ">
                 Already have an account?{' '}
                 <button
   onClick={() => switchMode('login')}
-  className="text-purple-500 hover:text-pink-400 font-medium cursor-hover transition-colors"
+  className="text-orange-500 hover:text-orange-600 font-medium cursor-hover transition-colors"
 >
   Sign in
 </button>
@@ -407,7 +407,7 @@ export default function AuthPage() {
           <div className="mt-6 text-center">
             <Link
   to="/"
-  className="text-sm text-gray-500 dark:text-gray-400 hover:text-purple-400 transition-all duration-300 cursor-hover hover:drop-shadow-[0_0_8px_rgba(168,85,247,0.6)]"
+  className="text-sm text-gray-500 hover:text-orange-500 transition-all duration-300 cursor-hover"
 >
   ← Back to home
 </Link>
@@ -445,7 +445,7 @@ export default function AuthPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="text-3xl font-bold text-white mb-4"
+            className="text-3xl font-bold text-gray-900 mb-4"
           >
             Connect. Collaborate. Create.
           </motion.h2>
@@ -454,7 +454,7 @@ export default function AuthPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="text-gray-300 max-w-md"
+            className="text-gray-600 max-w-md"
           >
             Join thousands of problem owners and talented builders creating impact together.
           </motion.p>

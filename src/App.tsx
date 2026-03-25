@@ -50,29 +50,27 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="dark">
-        <div className="min-h-screen bg-gray-950 text-gray-100">
-          <Toast />
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route 
-              path="/auth" 
-              element={
-                <PublicOnlyRoute>
-                  <AuthPage />
-                </PublicOnlyRoute>
-              } 
-            />
-            <Route 
-              path="/dashboard/*" 
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              } 
-            />
-          </Routes>
-        </div>
+      <div className="min-h-screen bg-[#F8FAFC] text-[#111827]">
+        <Toast />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route 
+            path="/auth" 
+            element={
+              <PublicOnlyRoute>
+                <AuthPage />
+              </PublicOnlyRoute>
+            } 
+          />
+          <Route 
+            path="/dashboard/*" 
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } 
+          />
+        </Routes>
       </div>
     </BrowserRouter>
   );

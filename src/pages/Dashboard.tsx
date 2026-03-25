@@ -74,7 +74,7 @@ export default function Dashboard() {
     <div className="min-h-screen flex">
       {/* Sidebar - Desktop */}
       <aside className="hidden lg:flex flex-col w-72 fixed inset-y-0 z-40">
-        <div className="flex-1 flex flex-col bg-titanium-950 border-r border-titanium-800">
+        <div className="flex-1 flex flex-col bg-white border-r border-gray-200">
           {/* Logo */}
           <div className="flex items-center gap-3 px-6 py-6">
             <Link to="/" className="flex items-center gap-3 cursor-hover">
@@ -97,7 +97,7 @@ export default function Dashboard() {
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all cursor-hover ${
                   currentPath === item.path
                     ? 'bg-gradient-to-r from-copper-500/20 to-copper-600/20 text-copper-500'
-                    : 'text-gray-400 hover:bg-titanium-900'
+                    : 'text-gray-500 hover:bg-orange-50'
                 }`}
               >
                 <item.icon className="w-5 h-5" />
@@ -107,16 +107,16 @@ export default function Dashboard() {
           </nav>
 
           {/* User Profile */}
-          <div className="p-4 border-t border-titanium-800">
+          <div className="p-4 border-t border-gray-200">
             <button
               onClick={() => setProfileMenuOpen(!profileMenuOpen)}
-              className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-titanium-900 transition-colors cursor-hover"
+              className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors cursor-hover"
             >
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-copper-400 to-copper-600 flex items-center justify-center text-white font-bold">
                 {user.displayName.charAt(0).toUpperCase()}
               </div>
               <div className="flex-1 text-left">
-                <div className="font-medium text-titanium-900 dark:text-white">{user.displayName}</div>
+                <div className="font-medium text-gray-900">{user.displayName}</div>
                 <div className="text-sm text-gray-500">{user.role === 'owner' ? 'Problem Owner' : 'Builder'}</div>
               </div>
               <ChevronDown className="w-4 h-4 text-gray-400" />
@@ -142,11 +142,11 @@ export default function Dashboard() {
       </aside>
 
       {/* Mobile Navigation */}
-      <div className={`lg:hidden fixed top-0 left-0 right-0 z-40 bg-[#0B1120] border-b border-titanium-800 ${sidebarOpen ? 'hidden' : ''}`}>
+      <div className={`lg:hidden fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-200 ${sidebarOpen ? 'hidden' : ''}`}>
         <div className="flex items-center justify-between px-4 h-16">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-2 rounded-lg hover:bg-titanium-900 cursor-hover"
+            className="p-2 rounded-lg hover:bg-gray-100 cursor-hover"
           >
             {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -181,16 +181,16 @@ export default function Dashboard() {
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
   exit={{ opacity: 0 }}
-  className="lg:hidden fixed inset-0 bg-[#0B1120] z-40"
+  className="lg:hidden fixed inset-0 bg-black/20 z-40"
   onClick={() => setSidebarOpen(false)}
 />
 <motion.div
   initial={{ x: -280 }}
   animate={{ x: 0 }}
   exit={{ x: -280 }}
-  className="lg:hidden fixed top-0 left-0 w-full max-w-xs h-[92vh] z-50 bg-titanium-950 border-r border-titanium-800 flex flex-col overflow-y-auto"
+  className="lg:hidden fixed top-0 left-0 w-full max-w-xs h-[92vh] z-50 bg-white border-r border-gray-200 flex flex-col overflow-y-auto"
 >
-              <div className="flex items-center justify-between px-4 py-6 border-b border-titanium-800">
+              <div className="flex items-center justify-between px-4 py-6 border-b border-gray-200">
                 <Link to="/" className="flex items-center gap-3">
                   <div className="h-10 flex items-center">
   <img
@@ -211,7 +211,7 @@ export default function Dashboard() {
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all cursor-hover ${
                       currentPath === item.path
                         ? 'bg-gradient-to-r from-copper-500/20 to-copper-600/20 text-copper-500'
-                        : 'text-gray-400 hover:bg-titanium-900'
+                        : 'text-gray-500 hover:bg-orange-50'
                     }`}
                   >
                     <item.icon className="w-5 h-5" />
@@ -220,7 +220,7 @@ export default function Dashboard() {
                 ))}
               </nav>
 
-              <div className="mt-auto p-4 border-t border-titanium-800 pb-10">
+              <div className="mt-auto p-4 border-t border-gray-200 pb-10">
                 <button
                   onClick={handleLogout}
                   className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 hover:bg-red-500/10 cursor-hover"

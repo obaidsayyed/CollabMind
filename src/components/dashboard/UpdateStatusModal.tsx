@@ -45,26 +45,26 @@ export default function UpdateStatusModal({ project, onClose, onSave }: UpdateSt
         >
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">Update Progress</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Update Progress</h2>
             <button
               onClick={onClose}
-              className="p-2 rounded-lg hover:bg-gray-700 text-gray-400 hover:text-white cursor-hover transition-colors"
+              className="p-2 rounded-lg hover:bg-gray-100 text-gray-500 hover:text-gray-900 cursor-hover transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Project Info */}
-          <div className="mb-6 p-4 rounded-xl bg-gray-800/50">
-            <h3 className="font-bold text-white mb-1">{project.title}</h3>
-            <p className="text-sm text-gray-400 line-clamp-2">{project.description}</p>
+          <div className="mb-6 p-4 rounded-xl bg-gray-50 border border-gray-200">
+            <h3 className="font-bold text-gray-900 mb-1">{project.title}</h3>
+            <p className="text-sm text-gray-500 line-clamp-2">{project.description}</p>
           </div>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Progress Input */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-600 mb-2">
                 Progress Percentage (0-100)
               </label>
               <div className="flex items-center gap-4">
@@ -74,7 +74,7 @@ export default function UpdateStatusModal({ project, onClose, onSave }: UpdateSt
                   max="100"
                   value={progress}
                   onChange={(e) => setProgress(parseInt(e.target.value))}
-                  className="flex-1 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
+                  className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-orange-500"
                 />
                 <input
                   type="number"
@@ -82,17 +82,17 @@ export default function UpdateStatusModal({ project, onClose, onSave }: UpdateSt
                   max="100"
                   value={progress}
                   onChange={(e) => setProgress(Math.min(100, Math.max(0, parseInt(e.target.value) || 0)))}
-                  className="w-20 px-3 py-2 rounded-xl glass bg-transparent border border-gray-600 text-white text-center focus:border-purple-500 outline-none"
+                  className="w-20 px-3 py-2 rounded-xl bg-white border border-gray-300 text-gray-900 text-center focus:border-orange-500 outline-none"
                 />
               </div>
-              <div className="mt-2 text-sm text-gray-400">
-                Current: <span className="text-purple-400 font-medium">{progress}%</span>
+              <div className="mt-2 text-sm text-gray-500">
+                Current: <span className="text-orange-500 font-medium">{progress}%</span>
               </div>
             </div>
 
             {/* Status Textarea */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-gray-600 mb-2">
                 Status Update
               </label>
               <textarea
@@ -100,7 +100,7 @@ export default function UpdateStatusModal({ project, onClose, onSave }: UpdateSt
                 onChange={(e) => setStatus(e.target.value)}
                 rows={3}
                 placeholder="Describe the current progress of the project..."
-                className="w-full px-4 py-3 rounded-xl glass bg-transparent border border-gray-600 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 outline-none transition-all resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none transition-all resize-none"
               />
             </div>
 
@@ -108,7 +108,7 @@ export default function UpdateStatusModal({ project, onClose, onSave }: UpdateSt
             <div className="flex gap-4">
               <motion.button
                 type="submit"
-                className="flex-1 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 cursor-hover"
+                className="flex-1 py-4 bg-gradient-to-r from-orange-500 to-orange-400 text-white font-bold rounded-xl flex items-center justify-center gap-2 cursor-hover"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -117,7 +117,7 @@ export default function UpdateStatusModal({ project, onClose, onSave }: UpdateSt
               <button
                 type="button"
                 onClick={onClose}
-                className="px-6 py-4 glass rounded-xl font-medium text-gray-300 cursor-hover hover:bg-gray-700"
+                className="px-6 py-4 bg-gray-100 border border-gray-200 rounded-xl font-medium text-gray-600 cursor-hover hover:bg-gray-200"
               >
                 Cancel
               </button>
